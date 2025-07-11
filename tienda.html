@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tienda - Automotora E-commerce</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f8f9fa;
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .navbar {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      background: #fff !important;
+    }
+    .navbar-brand {
+      color: #222 !important;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .btn-outline-light {
+      border: none;
+      color: #555 !important;
+      background: transparent !important;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .btn-outline-light:hover, .btn-outline-light.active {
+      color: #0d6efd !important;
+      background: transparent !important;
+      border-bottom: 2px solid #0d6efd;
+      border-radius: 0;
+    }
+    .container {
+      flex: 1;
+    }
+    .card {
+      border: none;
+      border-radius: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: box-shadow 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    .card-img-top {
+      height: 150px;
+      object-fit: cover;
+      border-radius: 1rem 1rem 0 0;
+    }
+    .btn-primary {
+      border-radius: 2rem;
+      font-size: 1rem;
+      padding: 0.5rem 1.5rem;
+    }
+    .carrito-icono {
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #0d6efd;
+      margin-left: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">Automotora E-commerce</a>
+      <div>
+        <a href="bienvenida.html" class="btn btn-outline-light me-2">Inicio</a>
+        <a href="tienda.html" class="btn btn-outline-light me-2 active">Tienda</a>
+        <a href="contacto.html" class="btn btn-outline-light">Contacto</a>
+        <span class="carrito-icono" data-bs-toggle="modal" data-bs-target="#carritoModal">
+          🛒 <span id="carrito-cantidad" class="badge bg-success">0</span>
+        </span>
+      </div>
+    </div>
+  </nav>
+  <div class="container my-4">
+    <div class="row" id="autos-lista">
+      <!-- Cards generadas por JS -->
+    </div>
+  </div>
+  <!-- Modal Carrito -->
+  <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="carritoModalLabel">Carrito de Compras</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body" id="carrito-items">
+          <!-- Items del carrito -->
+        </div>
+        <div class="modal-footer">
+          <span class="me-auto fw-bold">Total: $<span id="carrito-total">0</span></span>
+          <button type="button" class="btn btn-success" id="btn-comprar-todo">Comprar Todo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const autos = [
+      {id: 1, nombre: "Toyota Corolla", precio: 20000, imagen: "https://cdn.pixabay.com/photo/2012/05/29/00/43/car-49278_1280.jpg"},
+      {id: 2, nombre: "Ford Focus", precio: 22000, imagen: "https://cdn.pixabay.com/photo/2013/07/13/12/46/car-146185_1280.png"},
+      {id: 3, nombre: "Chevrolet Cruze", precio: 21000, imagen: "https://cdn.pixabay.com/photo/2012/05/29/00/43/car-49278_1280.jpg"},
+      {id: 4, nombre: "Honda Civic", precio: 23000, imagen: "https://cdn.pixabay.com/photo/2016/11/29/09/32/auto-1868726_1280.jpg"}
+    ];
+    let carrito = [];
+    function renderAutos() {
+      const lista = document.getElementById('autos-lista');
+      lista.innerHTML = '';
+      autos.forEach(auto => {
+        lista.innerHTML += `
+          <div class="col-md-3 mb-4">
+            <div class="card h-100">
+              <img src="${auto.imagen}" class="card-img-top" alt="${auto.nombre}">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">${auto.nombre}</h5>
+                <p class="card-text fw-bold">$${auto.precio.toLocaleString()}</p>
+                <button class="btn btn-primary mt-auto" onclick="agregarAlCarrito(${auto.id})">Agregar al carrito</button>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+    }
+    function agregarAlCarrito(id) {
+      const auto = autos.find(a => a.id === id);
+      const item = carrito.find(i => i.id === id);
+      if (item) { item.cantidad++; }
+      else { carrito.push({ ...auto, cantidad: 1 }); }
+      actualizarCarrito();
+    }
+    function renderCarrito() {
+      const items = document.getElementById('carrito-items');
+      if (carrito.length === 0) {
+        items.innerHTML = '<p class="text-center">El carrito está vacío.</p>';
+        document.getElementById('carrito-total').textContent = '0';
+        return;
+      }
+      let total = 0;
+      items.innerHTML = carrito.map(item => {
+        total += item.precio * item.cantidad;
+        return `
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div>
+              <strong>${item.nombre}</strong> <br>
+              <small>$${item.precio.toLocaleString()} x ${item.cantidad}</small>
+            </div>
+            <div>
+              <button class="btn btn-sm btn-danger" onclick="eliminarDelCarrito(${item.id})">Eliminar</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+      document.getElementById('carrito-total').textContent = total.toLocaleString();
+    }
+    function eliminarDelCarrito(id) {
+      carrito = carrito.filter(item => item.id !== id);
+      actualizarCarrito();
+    }
+    function actualizarCarrito() {
+      document.getElementById('carrito-cantidad').textContent = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+      renderCarrito();
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      renderAutos();
+      actualizarCarrito();
+      document.getElementById('btn-comprar-todo').onclick = () => {
+        if (carrito.length === 0) return;
+        alert('¡Gracias por tu compra!');
+        carrito = [];
+        actualizarCarrito();
+        const modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('carritoModal'));
+        modal.hide();
+      };
+    });
+    window.agregarAlCarrito = agregarAlCarrito;
+    window.eliminarDelCarrito = eliminarDelCarrito;
+  </script>
+</body>
+</html>
