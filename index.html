@@ -1,74 +1,192 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="es">
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-        <link rel="stylesheet" href="style.css">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Galería Fragmentada</title>
-    </head>
-    <body>
-        <header>
-            <nav class="navbar navbar-expand-lg bg-dark">
-                <div class="container-fluid">
-                    <div class="navbar-brand d-md-none">
-                    <a href="index.html">
-                        <img src="imagenes/gatico.png" alt="Logo Gato" id="gatico" class="me-2" />
-                    </a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HarinaPlus - Sacos de Harina de Calidad</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-bag-fill me-2"></i>HarinaPlus
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tienda.html">Tienda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold text-white mb-4">
+                        Sacos de Harina de la Mejor Calidad
+                    </h1>
+                    <p class="lead text-white mb-4">
+                        Desde 1995 ofrecemos harina de trigo premium para panaderías, 
+                        restaurantes y hogares. Calidad garantizada en cada saco.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="tienda.html" class="btn btn-warning btn-lg">
+                            <i class="bi bi-shop me-2"></i>Ver Productos
+                        </a>
+                        <a href="contacto.html" class="btn btn-outline-light btn-lg">
+                            <i class="bi bi-telephone me-2"></i>Contactar
+                        </a>
                     </div>
-                <div class="navbar-brand d-none d-md-flex align-items-center">
-                    <a href="index.html">
-                        <img src="imagenes/gatico.png" alt="Logo Gato" id="gatico" class="me-2" />
-                        <span href="index.html" class="tesxt-white fw-bold">Fragmentados</span>
-                    </a>    
                 </div>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="index.html">Inicio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="galeria.html">Galeria</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="contacto.html">Contacto</a>
-                            </li>
-                        </ul>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=872&q=80" 
+                         alt="Sacos de harina" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-5 fw-bold">¿Por qué elegirnos?</h2>
+                    <p class="lead text-muted">Más de 25 años de experiencia en el mercado</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-shield-check text-primary display-4 mb-3"></i>
+                            <h5 class="card-title">Calidad Garantizada</h5>
+                            <p class="card-text">Harina de trigo seleccionada y procesada con los más altos estándares de calidad.</p>
+                        </div>
                     </div>
                 </div>
-            </nav>
-        </header>
-        <main class="d-flex justify-content-center align-items-center">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-md-10 col-lg-8"> <section class="bienvenida-section">
-                            <pre id="saludo"></pre>
-                            <div class="container">
-                                <div class="row"></div>
-                                <div class="row">
-                                    <p>
-                                        Este espacio muestra el arte como catarsis, creado por quienes han convivido con enfermedades mentales. Inspirado en artistas como Van Gogh, busca dar visibilidad a voces fragmentadas. No se romantiza el dolor, sino que se reconoce el poder transformador del arte que nace del alma.
-                                    </p>
-                                </div>
-                                <div class="row"></div>
-                            </div>
-                            <div class="container">
-                                <div class="row justify-content-center"> <div class="col-auto"> <img src="imagenes/gatos.webp" width="500" alt="Obra de gatos expresivos" class="img-fluid"> </div>
-                                </div>
-                            </div>
-                        </section>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-truck text-primary display-4 mb-3"></i>
+                            <h5 class="card-title">Entrega Rápida</h5>
+                            <p class="card-text">Servicio de entrega en 24-48 horas para pedidos dentro de la ciudad.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-cash-coin text-primary display-4 mb-3"></i>
+                            <h5 class="card-title">Mejores Precios</h5>
+                            <p class="card-text">Precios competitivos con descuentos especiales para compras al por mayor.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </main>
-        <footer>
-            &copy; 2024 Galería de Arte. Todos los derechos reservados.
-        </footer>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
-        <script src="main.js"></script>
-    </body>
+        </div>
+    </section>
+
+    <!-- Products Preview -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-5 fw-bold">Nuestros Productos</h2>
+                    <p class="lead text-muted">Variedad de harinas para todas tus necesidades</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card product-card h-100">
+                        <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                             class="card-img-top" alt="Harina Todo Uso">
+                        <div class="card-body">
+                            <h5 class="card-title">Harina Todo Uso</h5>
+                            <p class="card-text">Perfecta para pan, pasteles y todo tipo de repostería.</p>
+                            <p class="h5 text-primary">$25.99</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card product-card h-100">
+                        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                             class="card-img-top" alt="Harina Panadera">
+                        <div class="card-body">
+                            <h5 class="card-title">Harina Panadera</h5>
+                            <p class="card-text">Especial para pan artesanal con alto contenido proteico.</p>
+                            <p class="h5 text-primary">$28.99</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card product-card h-100">
+                        <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                             class="card-img-top" alt="Harina Integral">
+                        <div class="card-body">
+                            <h5 class="card-title">Harina Integral</h5>
+                            <p class="card-text">Rica en fibra y nutrientes, ideal para pan integral.</p>
+                            <p class="h5 text-primary">$32.99</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="tienda.html" class="btn btn-primary btn-lg">
+                    Ver Todos los Productos <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5><i class="bi bi-bag-fill me-2"></i>HarinaPlus</h5>
+                    <p>Tu proveedor de confianza de sacos de harina desde 1995.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white-50">Inicio</a></li>
+                        <li><a href="tienda.html" class="text-white-50">Tienda</a></li>
+                        <li><a href="contacto.html" class="text-white-50">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contacto</h5>
+                    <p class="mb-1"><i class="bi bi-telephone me-2"></i>+1 (555) 123-4567</p>
+                    <p class="mb-1"><i class="bi bi-envelope me-2"></i>info@harinaplus.com</p>
+                    <p><i class="bi bi-geo-alt me-2"></i>123 Calle Principal, Ciudad</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2024 HarinaPlus. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>
