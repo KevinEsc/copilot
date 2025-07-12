@@ -1,11 +1,15 @@
-/* Paleta de colores */
+/* Paleta de colores para panadería */
 :root {
-    --color-fondo: #8B4513;
-    --color-texto: #FFFFFF;
-    --color-enlace: #ffffff;
-    --color-enlace-hover: #FFD700;
-    --color-footer: #654321;
-    --color-hover-activo: #FFD700;
+    --color-fondo: #FFF8E1; /* Crema muy clara */
+    --color-texto: #3E2723; /* Marrón oscuro */
+    --color-enlace: #8D6E63; /* Marrón medio */
+    --color-enlace-hover: #D84315; /* Naranja cálido */
+    --color-footer: #5D4037; /* Marrón oscuro */
+    --color-hover-activo: #E65100; /* Naranja intenso */
+    --color-accent: #FF8F00; /* Naranja dorado */
+    --color-light: #FFECB3; /* Amarillo crema */
+    --color-card: #FFFFFF; /* Blanco */
+    --color-shadow: rgba(139, 69, 19, 0.1); /* Sombra sutil */
 }
 
 /* Tipografía y fondo */
@@ -13,26 +17,26 @@ body {
     display: grid;
     min-height: 100dvh;
     grid-template-rows: auto 1fr auto;
-    background: linear-gradient(-45deg, #8B4513, #A0522D, #CD853F, #DEB887);
+    background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 25%, #FFE082 50%, #FFD54F 75%, #FFB300 100%);
     background-size: 400% 400%;
-    animation: fondoAnimado 15s ease infinite;
-    color: white;
+    animation: fondoAnimado 20s ease infinite;
+    color: var(--color-texto);
     min-height: 100vh;
     margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 @keyframes fondoAnimado {
     0% {
-    background-position: 0% 50%;
+        background-position: 0% 50%;
     }
     50% {
-    background-position: 100% 50%;
+        background-position: 100% 50%;
     }
     100% {
-    background-position: 0% 50%;
+        background-position: 0% 50%;
     }
 }
-
 
 html {
     overflow-y: scroll;
@@ -42,39 +46,62 @@ html {
 a {
     color: var(--color-enlace);
     text-decoration: none;
+    transition: all 0.3s ease;
 }
+
 a:hover {
     color: var(--color-enlace-hover);
+    text-decoration: underline;
 }
 
 /* Botón principal */
 .btn-primary {
-    background-color: #D2691E;
-    border-color: #8B4513;
-    color: var(--color-texto);
+    background: linear-gradient(45deg, var(--color-accent), #FF6F00);
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(255, 143, 0, 0.3);
+    transition: all 0.3s ease;
 }
+
 .btn-primary:hover {
-    background-color: #FFD700;
-    border-color: #D2691E;
-    color: #8B4513;
+    background: linear-gradient(45deg, #FF6F00, var(--color-accent));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 143, 0, 0.4);
+    color: white;
 }
+
 /* Navegación */
 .navbar {
-    background-color: rgba(139, 69, 19, 0.9); /* Marrón semitransparente */
+    background: linear-gradient(135deg, #5D4037 0%, #8D6E63 100%);
+    box-shadow: 0 2px 20px rgba(93, 64, 55, 0.3);
     position: sticky;
     top: 0;
     z-index: 1030;
+    border-bottom: 3px solid var(--color-accent);
 }
+
 .navbar-brand, .nav-link {
-    color: var(--color-texto) !important;
+    color: var(--color-light) !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
+
 .nav-link.active {
-    color: var(--color-hover-activo) !important;
-    border-radius: 5px;
+    color: var(--color-accent) !important;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-weight: 600;
 }
+
 .nav-link:hover {
-    color: var(--color-hover-activo) !important;
+    color: var(--color-accent) !important;
+    transform: translateY(-1px);
 }
+
 /* Sección bienvenida y textos */
 .bienvenida-section,
 .seccion-bienvenida {
@@ -83,117 +110,192 @@ a:hover {
     text-align: center;
     padding: 40px 15px;
     font-size: 18px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--color-shadow);
+    backdrop-filter: blur(10px);
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
+
 .bienvenida-section h2 {
     color: var(--color-texto);
     margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .bienvenida-section img {
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     margin-top: 20px;
+    transition: transform 0.3s ease;
+}
+
+.bienvenida-section img:hover {
+    transform: scale(1.02);
 }
 
 /* Imágenes de galería */
 .image-card {
     height: 250px;
     overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    background: var(--color-card);
+    border: 2px solid transparent;
 }
+
 .image-card:hover {
-    transform: scale(1.05);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-color: var(--color-accent);
 }
+
 .image-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.3s ease;
+}
+
+.image-card:hover img {
+    transform: scale(1.1);
 }
 
 /* Formulario */
 .form-control {
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    color: var(--color-enlace);
+    border-radius: 15px;
+    border: 2px solid #E0E0E0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    color: var(--color-texto);
+    padding: 12px 16px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.form-control:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 0.2rem rgba(255, 143, 0, 0.25);
+    background: white;
+}
+
+.form-select {
+    border-radius: 15px;
+    border: 2px solid #E0E0E0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    color: var(--color-texto);
+    padding: 12px 16px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.form-select:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 0.2rem rgba(255, 143, 0, 0.25);
+    background: white;
 }
 
 /* Footer */
 footer {
-    background-color: var(--color-footer);
-    color: var(--color-texto);
+    background: linear-gradient(135deg, #5D4037 0%, #8D6E63 100%);
+    color: var(--color-light);
     text-align: center;
-    padding: 20px;
+    padding: 25px;
     margin-top: 40px;
+    border-top: 3px solid var(--color-accent);
+    box-shadow: 0 -2px 20px rgba(93, 64, 55, 0.3);
 }
 
 .texto {
     word-wrap: break-word;
 }
-#gatico{
+
+#gatico {
     width: 30px;
 }
+
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23FFECB3' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
+
 #saludo {
-    font-size: 1.8rem;      /* Aumenta el tamaño de letra */
-    font-weight: bold;     /* Letra más gruesa */
-    text-align: center;    /* Centra el texto */
-    margin-top: rem;      /* Espacio arriba */
-    white-space: pre-wrap; /* Permite saltos de línea + ajuste automático */
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2rem;
+    white-space: pre-wrap;
+    color: var(--color-texto);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 body.contacto input,
 body.contacto textarea,
 body.contacto select {
-    color: black;
+    color: var(--color-texto);
+    background: rgba(255, 255, 255, 0.95);
 }
-/* Estilos para el modal */
 
+/* Estilos para el modal */
 .imagen-container {
-    margin: 10px;
+    margin: 15px;
     display: inline-block;
     text-align: center;
-    background-color: #8B4513;
-    padding: 10px;
-    border-radius: 8px;
-    transition: transform 0.2s ease;
+    background: linear-gradient(135deg, #FFF8E1, #FFECB3);
+    padding: 20px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
 }
 
 .imagen-container:hover {
     transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-accent);
 }
 
 .imagen-container img {
     width: 150px;
     height: auto;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.imagen-container:hover img {
+    transform: scale(1.05);
 }
 
 .btn-eliminar {
-    margin-top: 5px;
-    background-color: #DC143C;
+    margin-top: 10px;
+    background: linear-gradient(45deg, #D32F2F, #F44336);
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 8px 16px;
     cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-weight: 500;
 }
 
 .btn-eliminar:hover {
-    background-color: #B22222;
+    background: linear-gradient(45deg, #B71C1C, #D32F2F);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
 }
 
-    /*personalizado */
+/* Modal personalizado */
 #modal {
     display: none;
     position: fixed;
     z-index: 999;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.9);
     text-align: center;
     padding-top: 60px;
@@ -202,12 +304,15 @@ body.contacto select {
 #modal img {
     max-width: 80%;
     height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 #modal-desc {
     color: white;
-    margin-top: 10px;
+    margin-top: 15px;
     font-size: 18px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .close {
@@ -218,24 +323,198 @@ body.contacto select {
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .close:hover {
-    color: #FFD700;
+    color: var(--color-accent);
+    transform: scale(1.1);
 }
 
 /* Estilos adicionales para la tienda */
 .text-warning {
-    color: #FFD700 !important;
+    color: var(--color-accent) !important;
+    font-weight: 600;
 }
 
 .btn-outline-secondary {
-    color: #FFD700;
-    border-color: #FFD700;
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background: transparent;
 }
 
 .btn-outline-secondary:hover {
-    background-color: #FFD700;
-    color: #8B4513;
-    border-color: #FFD700;
+    background: linear-gradient(45deg, var(--color-accent), #FF6F00);
+    color: white;
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 143, 0, 0.3);
+}
+
+/* Estilos para títulos de sección */
+h2.fw-bold {
+    color: var(--color-texto);
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+h2.fw-bold::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(45deg, var(--color-accent), #FF6F00);
+    border-radius: 2px;
+}
+
+/* Estilos para párrafos descriptivos */
+p {
+    line-height: 1.6;
+    color: var(--color-texto);
+    font-size: 1.1rem;
+}
+
+/* Estilos para contenedores principales */
+.container {
+    padding: 20px;
+}
+
+/* Estilos para cards de productos */
+.modal-content.bg-dark {
+    background: linear-gradient(135deg, #5D4037 0%, #8D6E63 100%) !important;
+    border-radius: 20px;
+    border: 2px solid var(--color-accent);
+}
+
+.modal-header {
+    border-bottom: 2px solid var(--color-accent);
+    border-radius: 18px 18px 0 0;
+}
+
+.modal-footer {
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 18px 18px;
+}
+
+/* Estilos para iconos */
+.bi {
+    color: var(--color-accent);
+}
+
+/* Estilos para listas de contacto */
+.list-unstyled li {
+    margin-bottom: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.list-unstyled li:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .bienvenida-section {
+        margin: 15px;
+        padding: 20px 10px;
+    }
+    
+    #saludo {
+        font-size: 1.5rem;
+    }
+    
+    .image-card {
+        height: 200px;
+    }
+}
+
+/* Estilos adicionales para elementos de panadería */
+.lead {
+    color: var(--color-texto);
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.small {
+    color: var(--color-texto);
+    opacity: 0.8;
+}
+
+/* Animaciones suaves para iconos */
+.bi {
+    transition: all 0.3s ease;
+}
+
+.bi:hover {
+    transform: scale(1.1);
+    color: var(--color-enlace-hover) !important;
+}
+
+/* Estilos para títulos principales */
+h1.fw-bold {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+}
+
+/* Mejoras para formularios */
+.form-label {
+    font-weight: 600;
+    color: var(--color-texto);
+    margin-bottom: 8px;
+}
+
+/* Estilos para botones de acción */
+.btn {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* Efectos de hover mejorados */
+.navbar-brand:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos para el modal mejorado */
+.modal-content {
+    border: none;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-title {
+    color: var(--color-light);
+    font-weight: 700;
+}
+
+/* Estilos para listas de información de contacto */
+.list-unstyled em {
+    color: var(--color-accent);
+    font-style: normal;
+    font-weight: 500;
+}
+
+.list-unstyled a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.list-unstyled a:hover {
+    color: var(--color-enlace-hover);
+    text-decoration: underline;
+    transform: translateX(3px);
 }
