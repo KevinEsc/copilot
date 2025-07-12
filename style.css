@@ -1,11 +1,11 @@
 /* Paleta de colores */
 :root {
-    --color-fondo: #393E46;
+    --color-fondo: #8B4513;
     --color-texto: #FFFFFF;
     --color-enlace: #ffffff;
-    --color-enlace-hover: #0c0c0c;
-    --color-footer: #2F3645;
-    --color-hover-activo: #000000;
+    --color-enlace-hover: #FFD700;
+    --color-footer: #654321;
+    --color-hover-activo: #FFD700;
 }
 
 /* Tipografía y fondo */
@@ -13,7 +13,7 @@ body {
     display: grid;
     min-height: 100dvh;
     grid-template-rows: auto 1fr auto;
-    background: linear-gradient(-45deg, #222831, #393E46, #0e1b1b, #948979);
+    background: linear-gradient(-45deg, #8B4513, #A0522D, #CD853F, #DEB887);
     background-size: 400% 400%;
     animation: fondoAnimado 15s ease infinite;
     color: white;
@@ -49,18 +49,18 @@ a:hover {
 
 /* Botón principal */
 .btn-primary {
-    background-color: var(--color-hover-activo);
-    border-color: rgb(19, 56, 19);
+    background-color: #D2691E;
+    border-color: #8B4513;
     color: var(--color-texto);
 }
 .btn-primary:hover {
-    background-color: var(--color-enlace-hover);
-    border-color: rgb(8, 48, 8);
-    color: var(--color-texto);
+    background-color: #FFD700;
+    border-color: #D2691E;
+    color: #8B4513;
 }
 /* Navegación */
 .navbar {
-    background-color: rgba(255, 255, 255, 0.3); /* Blanco semitransparente */
+    background-color: rgba(139, 69, 19, 0.9); /* Marrón semitransparente */
     position: sticky;
     top: 0;
     z-index: 1030;
@@ -100,6 +100,10 @@ a:hover {
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+.image-card:hover {
+    transform: scale(1.05);
 }
 .image-card img {
     width: 100%;
@@ -131,7 +135,7 @@ footer {
     width: 30px;
 }
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='black' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 #saludo {
     font-size: 1.8rem;      /* Aumenta el tamaño de letra */
@@ -151,9 +155,14 @@ body.contacto select {
     margin: 10px;
     display: inline-block;
     text-align: center;
-    background-color: #2a2a2a;
+    background-color: #8B4513;
     padding: 10px;
     border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.imagen-container:hover {
+    transform: translateY(-5px);
 }
 
 .imagen-container img {
@@ -165,11 +174,17 @@ body.contacto select {
 
 .btn-eliminar {
     margin-top: 5px;
-    background-color: crimson;
+    background-color: #DC143C;
     color: white;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-eliminar:hover {
+    background-color: #B22222;
 }
 
     /*personalizado */
@@ -198,9 +213,29 @@ body.contacto select {
 .close {
     position: absolute;
     top: 20px;
-    right: 40px;
+    right: 30px;
     color: white;
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
+}
+
+.close:hover {
+    color: #FFD700;
+}
+
+/* Estilos adicionales para la tienda */
+.text-warning {
+    color: #FFD700 !important;
+}
+
+.btn-outline-secondary {
+    color: #FFD700;
+    border-color: #FFD700;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #FFD700;
+    color: #8B4513;
+    border-color: #FFD700;
 }
